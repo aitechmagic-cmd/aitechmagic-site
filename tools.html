@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Prompt Improver | AI Tech Magic</title>
+  <meta name="description" content="Free tool to transform weak prompts into powerful ones. Learn prompting best practices from an AI strategist.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-bg: #FAFAF8;
+      --color-bg-alt: #F0EFEB;
+      --color-text: #1A1A1A;
+      --color-text-muted: #5A5A5A;
+      --color-primary: #2D3E50;
+      --color-accent: #E8784A;
+      --color-accent-hover: #D6673B;
+      --color-white: #FFFFFF;
+      --color-border: #E0DED8;
+      --color-success: #4A9B7F;
+      
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Source Serif 4', Georgia, serif;
+      
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      
+      --max-width: 800px;
+      --transition: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--color-accent-hover);
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    nav .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--color-accent);
+    }
+
+    .nav-link {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    /* Main Content */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-section h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero-section p {
+      color: var(--color-text-muted);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: var(--color-white);
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Email Gate */
+    .email-gate {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: var(--space-md);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .email-gate h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-xs);
+      color: var(--color-primary);
+    }
+
+    .email-gate p {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-sm);
+      font-size: 1rem;
+    }
+
+    .email-form {
+      display: flex;
+      gap: var(--space-xs);
+    }
+
+    .email-form input {
+      flex: 1;
+      padding: 0.875rem 1rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      background: var(--color-bg);
+    }
+
+    .email-form input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(232, 120, 74, 0.1);
+    }
+
+    .btn {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.875rem 1.5rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:disabled {
+      background: var(--color-border);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Tool Section */
+    .tool-section {
+      display: none;
+    }
+
+    .tool-section.active {
+      display: block;
+    }
+
+    .tool-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: var(--space-md);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      margin-bottom: var(--space-md);
+    }
+
+    .tool-card h3 {
+      font-size: 1.125rem;
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .tool-card h3 .step {
+      background: var(--color-accent);
+      color: var(--color-white);
+      font-size: 0.875rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 1rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-bg);
+      resize: vertical;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(232, 120, 74, 0.1);
+    }
+
+    .char-count {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      text-align: right;
+      margin-top: var(--space-xs);
+    }
+
+    .improve-btn {
+      width: 100%;
+      margin-top: var(--space-sm);
+      padding: 1rem;
+      font-size: 1.125rem;
+    }
+
+    /* Results */
+    .results-section {
+      display: none;
+    }
+
+    .results-section.active {
+      display: block;
+    }
+
+    .result-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: var(--space-md);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      margin-bottom: var(--space-md);
+    }
+
+    .result-card.improved {
+      border: 2px solid var(--color-success);
+    }
+
+    .result-label {
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .result-label.original {
+      color: var(--color-text-muted);
+    }
+
+    .result-label.improved {
+      color: var(--color-success);
+    }
+
+    .result-text {
+      background: var(--color-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .copy-btn {
+      margin-top: var(--space-sm);
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .copy-btn:hover {
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    .copy-btn.copied {
+      background: var(--color-success);
+      color: var(--color-white);
+      border-color: var(--color-success);
+    }
+
+    .explanation-card {
+      background: linear-gradient(135deg, #2D3E50 0%, #3D5166 100%);
+      color: var(--color-white);
+      border-radius: 12px;
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .explanation-card h3 {
+      color: var(--color-white);
+      margin-bottom: var(--space-sm);
+      font-size: 1.125rem;
+    }
+
+    .explanation-card p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .explanation-card ul {
+      margin: var(--space-sm) 0;
+      padding-left: 1.25rem;
+    }
+
+    .explanation-card li {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.5rem;
+    }
+
+    .try-again-btn {
+      width: 100%;
+      background: var(--color-bg);
+      color: var(--color-primary);
+      border: 1px solid var(--color-border);
+    }
+
+    .try-again-btn:hover {
+      background: var(--color-white);
+    }
+
+    /* Usage Counter */
+    .usage-info {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-md);
+    }
+
+    .usage-info strong {
+      color: var(--color-accent);
+    }
+
+    /* Loading State */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: var(--space-lg);
+    }
+
+    .loading.active {
+      display: block;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid var(--color-border);
+      border-top-color: var(--color-accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto var(--space-sm);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading p {
+      color: var(--color-text-muted);
+      font-family: var(--font-display);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--color-bg-alt);
+      border-radius: 12px;
+      padding: var(--space-md);
+      text-align: center;
+      margin-top: var(--space-lg);
+    }
+
+    .cta-section h3 {
+      color: var(--color-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .cta-section p {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-sm);
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: var(--space-md);
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--color-border);
+      margin-top: var(--space-lg);
+    }
+
+    footer a {
+      color: var(--color-text-muted);
+    }
+
+    footer a:hover {
+      color: var(--color-accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .email-form {
+        flex-direction: column;
+      }
+      
+      .email-form input,
+      .email-form button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container" style="padding: 0;">
+      <a href="/" class="logo">AI Tech <span>Magic</span></a>
+      <a href="/" class="nav-link">← Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero -->
+    <div class="hero-section">
+      <span class="badge">Free Tool</span>
+      <h1>AI Prompt Improver</h1>
+      <p>Transform weak prompts into powerful ones. Paste your prompt, get an improved version with explanations of what changed and why.</p>
+    </div>
+
+    <!-- Email Gate -->
+    <div class="email-gate" id="emailGate">
+      <h2>Get Instant Access</h2>
+      <p>Enter your email to use the prompt improver (5 free improvements)</p>
+      <form class="email-form" id="emailForm">
+        <input type="email" id="gateEmail" placeholder="you@company.com" required>
+        <button type="submit" class="btn btn-primary">Access Tool</button>
+      </form>
+    </div>
+
+    <!-- Tool Section (hidden until email submitted) -->
+    <div class="tool-section" id="toolSection">
+      <div class="usage-info">
+        <strong id="usageCount">5</strong> improvements remaining
+      </div>
+
+      <div class="tool-card">
+        <h3><span class="step">1</span> Paste your prompt</h3>
+        <textarea id="originalPrompt" placeholder="Paste the prompt you want to improve here...
+
+Example: Write me a blog post about AI"></textarea>
+        <div class="char-count"><span id="charCount">0</span> / 2000 characters</div>
+        <button class="btn btn-primary improve-btn" id="improveBtn">✨ Improve My Prompt</button>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Analyzing and improving your prompt...</p>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section" id="resultsSection">
+      <div class="result-card">
+        <div class="result-label original">Your Original Prompt</div>
+        <div class="result-text" id="originalResult"></div>
+      </div>
+
+      <div class="result-card improved">
+        <div class="result-label improved">✓ Improved Prompt</div>
+        <div class="result-text" id="improvedResult"></div>
+        <button class="btn copy-btn" id="copyBtn">📋 Copy to Clipboard</button>
+      </div>
+
+      <div class="explanation-card">
+        <h3>💡 What Changed & Why</h3>
+        <div id="explanationResult"></div>
+      </div>
+
+      <button class="btn try-again-btn" id="tryAgainBtn">Try Another Prompt</button>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h3>Want to master AI for your organization?</h3>
+      <p>I offer executive education workshops that go far beyond prompting — strategy, governance, and implementation.</p>
+      <a href="/#contact" class="btn btn-primary">Let's Talk</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AI Tech Magic, LLC. All rights reserved.</p>
+    <p><a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a></p>
+  </footer>
+
+  <script>
+    // ===========================================
+    // CONFIGURATION
+    // ===========================================
+    const SUPABASE_URL = 'https://sbyefaafaovnqxuxlqqy.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNieWVmYWFmYW92bnF4dXhscXF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MzY2NzYsImV4cCI6MjA4NTUxMjY3Nn0.JPNNdxcBkwsnY0ujA9zDiekEJb86chqXyR8HM2ZYDWY';
+    const MAX_USES = 5;
+    
+    // ===========================================
+    // STATE
+    // ===========================================
+    let userEmail = localStorage.getItem('aitm_email') || null;
+    let usageCount = parseInt(localStorage.getItem('aitm_usage') || '0');
+
+    // ===========================================
+    // DOM ELEMENTS
+    // ===========================================
+    const emailGate = document.getElementById('emailGate');
+    const emailForm = document.getElementById('emailForm');
+    const toolSection = document.getElementById('toolSection');
+    const loading = document.getElementById('loading');
+    const resultsSection = document.getElementById('resultsSection');
+    const originalPrompt = document.getElementById('originalPrompt');
+    const improveBtn = document.getElementById('improveBtn');
+    const usageCountEl = document.getElementById('usageCount');
+    const charCount = document.getElementById('charCount');
+
+    // ===========================================
+    // INITIALIZATION
+    // ===========================================
+    function init() {
+      if (userEmail && usageCount < MAX_USES) {
+        showTool();
+      }
+      updateUsageDisplay();
+    }
+
+    function showTool() {
+      emailGate.style.display = 'none';
+      toolSection.classList.add('active');
+    }
+
+    function updateUsageDisplay() {
+      const remaining = MAX_USES - usageCount;
+      usageCountEl.textContent = remaining;
+      
+      if (remaining <= 0) {
+        improveBtn.disabled = true;
+        improveBtn.textContent = 'No improvements remaining';
+      }
+    }
+
+    // ===========================================
+    // EMAIL GATE
+    // ===========================================
+    emailForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('gateEmail').value;
+      
+      // Save to Supabase
+      try {
+        await fetch(`${SUPABASE_URL}/rest/v1/aileads`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            email: email,
+            name: 'Prompt Tool User',
+            interest: 'prompt-tool',
+            message: 'Signed up via Prompt Improver tool',
+            created_at: new Date().toISOString()
+          })
+        });
+      } catch (err) {
+        console.error('Failed to save email:', err);
+      }
+      
+      // Store locally
+      userEmail = email;
+      localStorage.setItem('aitm_email', email);
+      localStorage.setItem('aitm_usage', '0');
+      usageCount = 0;
+      
+      showTool();
+      updateUsageDisplay();
+    });
+
+    // ===========================================
+    // CHARACTER COUNT
+    // ===========================================
+    originalPrompt.addEventListener('input', () => {
+      const count = originalPrompt.value.length;
+      charCount.textContent = count;
+      
+      if (count > 2000) {
+        charCount.style.color = '#E8784A';
+      } else {
+        charCount.style.color = '';
+      }
+    });
+
+    // ===========================================
+    // IMPROVE PROMPT
+    // ===========================================
+    improveBtn.addEventListener('click', async () => {
+      const prompt = originalPrompt.value.trim();
+      
+      if (!prompt) {
+        alert('Please enter a prompt to improve');
+        return;
+      }
+      
+      if (prompt.length > 2000) {
+        alert('Please keep your prompt under 2000 characters');
+        return;
+      }
+      
+      if (usageCount >= MAX_USES) {
+        alert('You\'ve used all your free improvements. Contact us for more!');
+        return;
+      }
+      
+      // Show loading
+      toolSection.classList.remove('active');
+      resultsSection.classList.remove('active');
+      loading.classList.add('active');
+      
+      try {
+        // Call the Netlify function
+        const response = await fetch('/.netlify/functions/improve-prompt', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt: prompt })
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to improve prompt');
+        }
+        
+        const data = await response.json();
+        
+        // Update usage
+        usageCount++;
+        localStorage.setItem('aitm_usage', usageCount.toString());
+        
+        // Show results
+        document.getElementById('originalResult').textContent = prompt;
+        document.getElementById('improvedResult').textContent = data.improvedPrompt;
+        document.getElementById('explanationResult').innerHTML = data.explanation;
+        
+        loading.classList.remove('active');
+        resultsSection.classList.add('active');
+        updateUsageDisplay();
+        
+      } catch (error) {
+        console.error('Error:', error);
+        loading.classList.remove('active');
+        toolSection.classList.add('active');
+        alert('Sorry, something went wrong. Please try again.');
+      }
+    });
+
+    // ===========================================
+    // COPY BUTTON
+    // ===========================================
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      const text = document.getElementById('improvedResult').textContent;
+      const btn = document.getElementById('copyBtn');
+      
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        
+        setTimeout(() => {
+          btn.textContent = '📋 Copy to Clipboard';
+          btn.classList.remove('copied');
+        }, 2000);
+      } catch (err) {
+        alert('Failed to copy. Please select and copy manually.');
+      }
+    });
+
+    // ===========================================
+    // TRY AGAIN
+    // ===========================================
+    document.getElementById('tryAgainBtn').addEventListener('click', () => {
+      resultsSection.classList.remove('active');
+      toolSection.classList.add('active');
+      originalPrompt.value = '';
+      charCount.textContent = '0';
+    });
+
+    // Initialize
+    init();
+  </script>
+
+</body>
+</html>
