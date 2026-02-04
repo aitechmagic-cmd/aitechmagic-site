@@ -502,18 +502,18 @@
       <p>Transform weak prompts into powerful ones. Paste your prompt, get an improved version with explanations of what changed and why.</p>
     </div>
 
-    <!-- Email Gate -->
-    <div class="email-gate" id="emailGate">
-      <h2>Get Instant Access</h2>
-      <p>Enter your email to use the prompt improver (5 free improvements)</p>
+    <!-- Email Gate (hidden initially, shows after 2 free uses) -->
+    <div class="email-gate" id="emailGate" style="display: none;">
+      <h2>You're getting the hang of it! 🎉</h2>
+      <p>Enter your email to unlock 10 more free improvements</p>
       <form class="email-form" id="emailForm">
         <input type="email" id="gateEmail" placeholder="you@company.com" required>
-        <button type="submit" class="btn btn-primary">Access Tool</button>
+        <button type="submit" class="btn btn-primary">Unlock More</button>
       </form>
     </div>
 
-    <!-- Tool Section (hidden until email submitted) -->
-    <div class="tool-section" id="toolSection">
+    <!-- Tool Section (visible by default) -->
+    <div class="tool-section active" id="toolSection">
       <div class="usage-info">
         <strong id="usageCount">5</strong> improvements remaining
       </div>
@@ -575,13 +575,15 @@ Example: Write me a blog post about AI"></textarea>
     // ===========================================
     const SUPABASE_URL = 'https://sbyefaafaovnqxuxlqqy.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNieWVmYWFmYW92bnF4dXhscXF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MzY2NzYsImV4cCI6MjA4NTUxMjY3Nn0.JPNNdxcBkwsnY0ujA9zDiekEJb86chqXyR8HM2ZYDWY';
-    const MAX_USES = 5;
+    const FREE_USES_BEFORE_GATE = 2;  // Free uses before email required
+    const MAX_USES_AFTER_EMAIL = 10;  // Additional uses after email
     
     // ===========================================
     // STATE
     // ===========================================
     let userEmail = localStorage.getItem('aitm_email') || null;
     let usageCount = parseInt(localStorage.getItem('aitm_usage') || '0');
+    let hasProvidedEmail = localStorage.getItem('aitm_email_provided') === 'true';
 
     // ===========================================
     // DOM ELEMENTS
@@ -600,10 +602,17 @@ Example: Write me a blog post about AI"></textarea>
     // INITIALIZATION
     // ===========================================
     function init() {
-      if (userEmail && usageCount < MAX_USES) {
+      updateUsageDisplay();
+      
+      // Check if user needs to provide email
+      if (!hasProvidedEmail && usageCount >= FREE_USES_BEFORE_GATE) {
+        showEmailGate();
+      } else if (hasProvidedEmail && usageCount >= (FREE_USES_BEFORE_GATE + MAX_USES_AFTER_EMAIL)) {
+        // Used all attempts
+        showTool();
+      } else {
         showTool();
       }
-      updateUsageDisplay();
     }
 
     function showTool() {
@@ -611,13 +620,33 @@ Example: Write me a blog post about AI"></textarea>
       toolSection.classList.add('active');
     }
 
+    function showEmailGate() {
+      toolSection.classList.remove('active');
+      resultsSection.classList.remove('active');
+      emailGate.style.display = 'block';
+    }
+
+    function getMaxUses() {
+      return hasProvidedEmail ? (FREE_USES_BEFORE_GATE + MAX_USES_AFTER_EMAIL) : FREE_USES_BEFORE_GATE;
+    }
+
     function updateUsageDisplay() {
-      const remaining = MAX_USES - usageCount;
-      usageCountEl.textContent = remaining;
+      const maxUses = getMaxUses();
+      const remaining = maxUses - usageCount;
+      
+      if (hasProvidedEmail) {
+        usageCountEl.textContent = remaining;
+      } else {
+        usageCountEl.textContent = remaining;
+      }
       
       if (remaining <= 0) {
-        improveBtn.disabled = true;
-        improveBtn.textContent = 'No improvements remaining';
+        if (!hasProvidedEmail) {
+          showEmailGate();
+        } else {
+          improveBtn.disabled = true;
+          improveBtn.textContent = 'No improvements remaining';
+        }
       }
     }
 
@@ -652,9 +681,9 @@ Example: Write me a blog post about AI"></textarea>
       
       // Store locally
       userEmail = email;
+      hasProvidedEmail = true;
       localStorage.setItem('aitm_email', email);
-      localStorage.setItem('aitm_usage', '0');
-      usageCount = 0;
+      localStorage.setItem('aitm_email_provided', 'true');
       
       showTool();
       updateUsageDisplay();
