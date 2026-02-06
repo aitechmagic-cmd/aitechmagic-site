@@ -46,7 +46,7 @@ EDUCATION & CERTIFICATIONS:
 - Cornell University — AI/ML Certifications
 - Continuous learning in AI, data science, and leadership
 
-CONSULTING SERVICES (AI TechMagic):
+CONSULTING SERVICES (AI Tech Magic):
 - AI Strategy & Roadmap Development
 - AI Governance & Responsible AI Frameworks
 - Rapid AI Prototyping & Innovation Labs (2-4 week sprints)
@@ -88,7 +88,7 @@ exports.handler = async (event) => {
         messages: [
           {
             role: "user",
-            content: `You are an AI assistant for AI TechMagic, an AI consulting firm led by Virginia. Analyze this job description against Virginia's professional profile and determine fit.
+            content: `You are an AI assistant for AI Tech Magic, an AI consulting firm led by Virginia. Analyze this job description against Virginia's professional profile and determine fit.
 
 VIRGINIA'S PROFILE:
 ${VIRGINIA_PROFILE}
