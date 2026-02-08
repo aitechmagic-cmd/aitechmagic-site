@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
 
@@ -521,8 +521,8 @@
             </div>
 
             <p>Or reach out directly:</p>
-            <a href="/cdn-cgi/l/email-protection#84edeae2ebc4e5edf0e1e7ece9e5e3ede7aae7ebe9" class="contact-email-link">
-              ✉ <span class="__cf_email__" data-cfemail="224b4c444d62434b5647414a4f43454b410c414d4f">[email&#160;protected]</span>
+            <a href="/cdn-cgi/l/email-protection#f1989f979eb19098859492999c90969892df929e9c" class="contact-email-link">
+              ✉ <span class="__cf_email__" data-cfemail="365f58505976575f4253555e5b57515f551855595b">[email&#160;protected]</span>
             </a>
           </div>
 
@@ -637,10 +637,8 @@
     const revealEls = document.querySelectorAll('.reveal');
 
     if ('IntersectionObserver' in window) {
-      // Step 1: hide elements only after confirming observer support
       revealEls.forEach(el => el.classList.add('reveal-ready'));
 
-      // Step 2: observe and reveal on intersection
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -652,7 +650,6 @@
 
       revealEls.forEach(el => observer.observe(el));
 
-      // Step 3: safety net — force-reveal anything still hidden after 4s
       setTimeout(() => {
         revealEls.forEach(el => {
           if (!el.classList.contains('visible')) {
@@ -661,7 +658,6 @@
         });
       }, 4000);
     }
-    // If no IntersectionObserver, content stays visible (no .reveal-ready added)
 
     // ===========================================
     // RESET FORM STATE ON PAGE LOAD
