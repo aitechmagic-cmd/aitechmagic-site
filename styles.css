@@ -637,6 +637,8 @@ p:last-child {
   background: #ffffff;
   padding: 1.25rem 1.5rem;
   transition: background-color var(--transition);
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .rapid-step:hover {
@@ -1203,7 +1205,10 @@ textarea {
    -------------------------------------------------- */
 
 .rapid-flow {
+  display: -webkit-flex;
   display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
@@ -1213,6 +1218,7 @@ textarea {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .rapid-flow-step {
@@ -1221,6 +1227,8 @@ textarea {
   align-items: center;
   gap: 0.5rem;
   min-width: 70px;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .rapid-flow-circle {
@@ -1264,36 +1272,46 @@ textarea {
    -------------------------------------------------- */
 
 .osb-stack {
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: column;
   flex-direction: column;
-  align-items: center;
+  -webkit-align-items: stretch;
+  align-items: stretch;
   max-width: 520px;
   margin: 0 auto 2.5rem;
 }
 
 .osb-stack-layer {
   width: 100%;
+  display: -webkit-flex;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
   gap: 0.875rem;
   padding: 0.9rem 1.25rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-light);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   transition: all var(--transition);
 }
 
 .osb-stack-layer:hover {
   border-color: rgba(232, 120, 74, 0.3);
-  background: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-.osb-stack-4 { background: rgba(232, 120, 74, 0.15); }
-.osb-stack-3 { background: rgba(232, 120, 74, 0.10); }
-.osb-stack-2 { background: rgba(232, 120, 74, 0.06); }
-.osb-stack-1 { background: rgba(255, 255, 255, 0.04); }
+.osb-stack-4 { background-color: rgba(232, 120, 74, 0.18); }
+.osb-stack-3 { background-color: rgba(232, 120, 74, 0.12); }
+.osb-stack-2 { background-color: rgba(232, 120, 74, 0.08); }
+.osb-stack-1 { background-color: rgba(255, 255, 255, 0.06); }
 
 .osb-stack-icon {
   font-size: 1.15rem;
+  -webkit-flex-shrink: 0;
   flex-shrink: 0;
 }
 
@@ -1313,8 +1331,11 @@ textarea {
 .osb-stack-connector {
   width: 2px;
   height: 12px;
-  background: rgba(232, 120, 74, 0.35);
+  min-height: 12px;
+  background-color: rgba(232, 120, 74, 0.35);
   margin: 0 auto;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 /* Tool card microcopy
