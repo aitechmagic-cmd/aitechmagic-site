@@ -1177,6 +1177,221 @@ textarea {
 }
 
 
+/* RAPID step extras
+   -------------------------------------------------- */
+
+.rapid-step-num {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-border);
+  margin-bottom: 0.25rem;
+}
+
+.rapid-output {
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+}
+
+/* RAPID flow diagram
+   -------------------------------------------------- */
+
+.rapid-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 1.75rem 1rem;
+  margin-bottom: 2rem;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+.rapid-flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 70px;
+}
+
+.rapid-flow-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(232, 120, 74, 0.25);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.rapid-flow-step:hover .rapid-flow-circle {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(232, 120, 74, 0.35);
+}
+
+.rapid-flow-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.rapid-flow-arrow {
+  font-size: 1.25rem;
+  color: var(--color-border);
+  font-weight: 300;
+  margin: 0 0.35rem;
+  flex-shrink: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* Second Brain layer stack diagram
+   -------------------------------------------------- */
+
+.osb-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+}
+
+.osb-stack-layer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  transition: all var(--transition);
+}
+
+.osb-stack-layer:hover {
+  border-color: rgba(232, 120, 74, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.osb-stack-4 { background: rgba(232, 120, 74, 0.15); }
+.osb-stack-3 { background: rgba(232, 120, 74, 0.10); }
+.osb-stack-2 { background: rgba(232, 120, 74, 0.06); }
+.osb-stack-1 { background: rgba(255, 255, 255, 0.04); }
+
+.osb-stack-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.osb-stack-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+  min-width: 90px;
+}
+
+.osb-stack-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  opacity: 0.75;
+}
+
+.osb-stack-connector {
+  width: 2px;
+  height: 12px;
+  background: rgba(232, 120, 74, 0.35);
+  margin: 0 auto;
+}
+
+/* Tool card microcopy
+   -------------------------------------------------- */
+
+.tool-micro {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  margin-top: 0.35rem;
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+}
+
+/* Contact call expectations
+   -------------------------------------------------- */
+
+.call-expectations {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+}
+
+.call-expectations h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #ffffff;
+}
+
+.call-will h4 { color: var(--color-accent); }
+
+.call-expectations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.call-expectations li {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  padding: 0.2rem 0 0.2rem 1.1rem;
+  position: relative;
+  line-height: 1.45;
+}
+
+.call-will li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.call-wont li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* Hero accent line
+   -------------------------------------------------- */
+
+.accent-line {
+  color: var(--color-accent);
+}
+
+
 /* ==========================================================
    RESPONSIVE BREAKPOINTS
    ========================================================== */
@@ -1224,6 +1439,10 @@ textarea {
 
   .mobile-menu {
     display: none;
+  }
+
+  .call-expectations {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
