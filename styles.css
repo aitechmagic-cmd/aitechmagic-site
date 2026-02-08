@@ -543,15 +543,21 @@ p:last-child {
 .anim-fade.d3 { animation-delay: 0.2s; }
 .anim-fade.d4 { animation-delay: 0.28s; }
 
-/* Scroll reveal */
-.reveal {
+/* Scroll reveal — progressive enhancement.
+   Content is visible by default. JS adds .reveal-ready to hide,
+   then .visible to animate in. If JS breaks, everything stays visible. */
+.reveal.reveal-ready {
   opacity: 0;
+  -webkit-transform: translateY(20px);
   transform: translateY(20px);
+  -webkit-transition: opacity 0.55s ease, -webkit-transform 0.55s ease;
   transition: opacity 0.55s ease, transform 0.55s ease;
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
+  -webkit-transform: translateY(0);
   transform: translateY(0);
 }
 
@@ -1207,8 +1213,8 @@ textarea {
 .rapid-flow {
   display: -webkit-flex;
   display: flex;
-  flex-wrap: nowrap;
   -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
@@ -1292,8 +1298,6 @@ textarea {
   padding: 0.9rem 1.25rem;
   border-radius: var(--radius-md);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   transition: all var(--transition);
