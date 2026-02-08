@@ -521,8 +521,8 @@
             </div>
 
             <p>Or reach out directly:</p>
-            <a href="/cdn-cgi/l/email-protection#70191e161f301119041513181d111719135e131f1d" class="contact-email-link">
-              ✉ <span class="__cf_email__" data-cfemail="2c45424a436c4d4558494f44414d4b454f024f4341">[email&#160;protected]</span>
+            <a href="/cdn-cgi/l/email-protection#84edeae2ebc4e5edf0e1e7ece9e5e3ede7aae7ebe9" class="contact-email-link">
+              ✉ <span class="__cf_email__" data-cfemail="224b4c444d62434b5647414a4f43454b410c414d4f">[email&#160;protected]</span>
             </a>
           </div>
 
@@ -635,16 +635,33 @@
     // SCROLL REVEAL
     // ===========================================
     const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
-    revealEls.forEach(el => observer.observe(el));
+    if ('IntersectionObserver' in window) {
+      // Step 1: hide elements only after confirming observer support
+      revealEls.forEach(el => el.classList.add('reveal-ready'));
+
+      // Step 2: observe and reveal on intersection
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.01 });
+
+      revealEls.forEach(el => observer.observe(el));
+
+      // Step 3: safety net — force-reveal anything still hidden after 4s
+      setTimeout(() => {
+        revealEls.forEach(el => {
+          if (!el.classList.contains('visible')) {
+            el.classList.add('visible');
+          }
+        });
+      }, 4000);
+    }
+    // If no IntersectionObserver, content stays visible (no .reveal-ready added)
 
     // ===========================================
     // RESET FORM STATE ON PAGE LOAD
