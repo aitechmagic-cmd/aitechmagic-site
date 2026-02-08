@@ -3,854 +3,507 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tech Magic | Your AI Strategist</title>
-  <meta name="description" content="Enterprise AI consulting that cuts through the hype. Custom frameworks, executive education, and implementation strategy from an industry practitioner.">
+  <title>AI Tech Magic | Strategic AI Advisory for Mid-Market Leaders</title>
+  <meta name="description" content="AI strategy and architecture for companies with 200–2,000 employees. Cut through the hype with the RAPID Framework — enterprise-grade AI without Big 4 bloat.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
   
-  <style>
-    :root {
-      --color-bg: #FAFAF8;
-      --color-bg-alt: #F0EFEB;
-      --color-text: #1A1A1A;
-      --color-text-muted: #5A5A5A;
-      --color-primary: #2D3E50;
-      --color-accent: #E8784A;
-      --color-accent-hover: #D6673B;
-      --color-white: #FFFFFF;
-      --color-border: #E0DED8;
-      
-      --font-display: 'Outfit', sans-serif;
-      --font-body: 'Source Serif 4', Georgia, serif;
-      
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 2rem;
-      --space-lg: 4rem;
-      --space-xl: 8rem;
-      
-      --max-width: 1200px;
-      --transition: 0.3s ease;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--font-body);
-      font-size: 1.125rem;
-      line-height: 1.7;
-      color: var(--color-text);
-      background-color: var(--color-bg);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Typography */
-    h1, h2, h3, h4 {
-      font-family: var(--font-display);
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      letter-spacing: -0.01em;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-    }
-
-    p {
-      margin-bottom: 1em;
-    }
-
-    a {
-      color: var(--color-accent);
-      text-decoration: none;
-      transition: color var(--transition);
-    }
-
-    a:hover {
-      color: var(--color-accent-hover);
-    }
-
-    /* Layout */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--space-md);
-    }
-
-    section {
-      padding: var(--space-xl) 0;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(250, 250, 248, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--color-border);
-      padding: var(--space-sm) 0;
-      transition: transform var(--transition);
-    }
-
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      text-decoration: none;
-    }
-
-    .logo span {
-      color: var(--color-accent);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: var(--space-md);
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--color-text);
-      text-decoration: none;
-      transition: color var(--transition);
-    }
-
-    .nav-links a:hover {
-      color: var(--color-accent);
-    }
-
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: var(--space-xl);
-      background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 80%;
-      height: 150%;
-      background: radial-gradient(ellipse at center, rgba(232, 120, 74, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-eyebrow {
-      font-family: var(--font-display);
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--color-accent);
-      margin-bottom: var(--space-sm);
-      display: inline-block;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards;
-    }
-
-    .hero h1 {
-      margin-bottom: var(--space-md);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.1s forwards;
-    }
-
-    .hero-description {
-      font-size: 1.25rem;
-      color: var(--color-text-muted);
-      max-width: 600px;
-      margin-bottom: var(--space-lg);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.2s forwards;
-    }
-
-    .hero-cta {
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.3s forwards;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-xs);
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 1rem 2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: all var(--transition);
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--color-accent);
-      color: var(--color-white);
-    }
-
-    .btn-primary:hover {
-      background: var(--color-accent-hover);
-      color: var(--color-white);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(232, 120, 74, 0.3);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--color-primary);
-      border: 2px solid var(--color-primary);
-    }
-
-    .btn-secondary:hover {
-      background: var(--color-primary);
-      color: var(--color-white);
-    }
-
-    /* Services */
-    .services {
-      background: var(--color-white);
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto var(--space-lg);
-    }
-
-    .section-header h2 {
-      margin-bottom: var(--space-sm);
-    }
-
-    .section-header p {
-      color: var(--color-text-muted);
-      font-size: 1.125rem;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: var(--space-md);
-    }
-
-    .service-card {
-      background: var(--color-bg);
-      padding: var(--space-md);
-      border-radius: 8px;
-      border: 1px solid var(--color-border);
-      transition: all var(--transition);
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      border-color: var(--color-accent);
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--color-accent);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--space-sm);
-      font-size: 1.5rem;
-    }
-
-    .service-card h3 {
-      margin-bottom: var(--space-xs);
-      color: var(--color-primary);
-    }
-
-    .service-card p {
-      color: var(--color-text-muted);
-      font-size: 1rem;
-      margin-bottom: 0;
-    }
-
-    /* About / Credibility */
-    .about {
-      background: var(--color-primary);
-      color: var(--color-white);
-    }
-
-    .about h2 {
-      color: var(--color-white);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
-      align-items: center;
-    }
-
-    .about-content p {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 1.125rem;
-    }
-
-    .about-content p:last-child {
-      margin-bottom: 0;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-    }
-
-    .stat {
-      text-align: center;
-      padding: var(--space-md);
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .stat-number {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--color-accent);
-      line-height: 1;
-      margin-bottom: var(--space-xs);
-    }
-
-    .stat-label {
-      font-family: var(--font-display);
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    /* Contact */
-    .contact {
-      background: var(--color-bg-alt);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
-    }
-
-    .contact-info h2 {
-      margin-bottom: var(--space-sm);
-    }
-
-    .contact-info p {
-      color: var(--color-text-muted);
-      margin-bottom: var(--space-md);
-    }
-
-    .contact-email {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--color-accent);
-    }
-
-    .contact-form {
-      background: var(--color-white);
-      padding: var(--space-md);
-      border-radius: 8px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-    }
-
-    .form-group {
-      margin-bottom: var(--space-sm);
-    }
-
-    .form-group label {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: var(--space-xs);
-      color: var(--color-primary);
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 0.875rem 1rem;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      border: 1px solid var(--color-border);
-      border-radius: 4px;
-      background: var(--color-bg);
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--color-accent);
-      box-shadow: 0 0 0 3px rgba(232, 120, 74, 0.1);
-    }
-
-    .form-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-submit {
-      width: 100%;
-      margin-top: var(--space-sm);
-    }
-
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: var(--space-md);
-    }
-
-    .form-success.show {
-      display: block;
-    }
-
-    .form-success h3 {
-      color: var(--color-primary);
-      margin-bottom: var(--space-xs);
-    }
-
-    .form-success p {
-      color: var(--color-text-muted);
-      margin-bottom: 0;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--color-primary);
-      color: rgba(255, 255, 255, 0.6);
-      padding: var(--space-lg) 0 var(--space-md);
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: var(--space-sm);
-    }
-
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--color-white);
-    }
-
-    .footer-logo span {
-      color: var(--color-accent);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: var(--space-md);
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-family: var(--font-display);
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .footer-links a:hover {
-      color: var(--color-white);
-    }
-
-    .footer-bottom {
-      margin-top: var(--space-md);
-      padding-top: var(--space-md);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-      font-size: 0.875rem;
-    }
-
-    /* Mobile Menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-      z-index: 200;
-    }
-    .hamburger span {
-      width: 24px;
-      height: 2px;
-      background: var(--color-primary);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-    .mobile-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.3);
-      z-index: 99;
-    }
-    .mobile-overlay.active { display: block; }
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: -280px;
-      width: 280px;
-      height: 100%;
-      background: var(--color-bg);
-      z-index: 150;
-      padding: 100px var(--space-md) var(--space-md);
-      transition: right 0.3s ease;
-      box-shadow: -4px 0 20px rgba(0,0,0,0.1);
-    }
-    .mobile-menu.active { right: 0; }
-    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .mobile-menu a {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--color-text);
-      text-decoration: none;
-      display: block;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--color-border);
-      transition: color 0.3s;
-    }
-    .mobile-menu a:hover { color: var(--color-accent); }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .mobile-menu {
-        display: block;
-      }
-    }
-
-    @media (max-width: 600px) {
-      section {
-        padding: var(--space-lg) 0;
-      }
-
-      .about-stats {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-sm);
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-    }
-  </style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="container">
-      <a href="#" class="logo">AI Tech <span>Magic</span></a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="/tools.html">Tools</a></li>
-        <li><a href="/fit-analyzer.html">Job Fit Tool</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+  <!-- ==================== HEADER / NAV ==================== -->
+  <header id="site-header" class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo">AI Tech <span class="accent">Magic</span></a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#why-fails">Why AI Fails</a></li>
+          <li><a href="#rapid">RAPID Framework</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#proof">About</a></li>
+          <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
     </div>
-  </nav>
+  </header>
 
   <!-- Mobile Menu -->
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
     <ul>
+      <li><a href="#why-fails" class="mobile-link">Why AI Fails</a></li>
+      <li><a href="#rapid" class="mobile-link">RAPID Framework</a></li>
+      <li><a href="#second-brain" class="mobile-link">Second Brain</a></li>
       <li><a href="#services" class="mobile-link">Services</a></li>
-      <li><a href="#about" class="mobile-link">About</a></li>
-      <li><a href="/tools.html" class="mobile-link">Tools</a></li>
-      <li><a href="/fit-analyzer.html" class="mobile-link">Job Fit Tool</a></li>
-      <li><a href="#contact" class="mobile-link">Contact</a></li>
+      <li><a href="#tools" class="mobile-link">Tools</a></li>
+      <li><a href="#proof" class="mobile-link">About</a></li>
+      <li><a href="#contact" class="mobile-link mobile-cta">Book a Call</a></li>
     </ul>
   </div>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-content">
-        <span class="hero-eyebrow">Your AI Strategist</span>
-        <h1>Cut through the AI hype. Build what actually works.</h1>
-        <p class="hero-description">
-          AI consulting for scaling companies — from someone who's built it, not just studied it. 
-          Custom frameworks, executive education, and implementation strategy that delivers real results.
+
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero" class="section hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow anim-fade">AI Strategy for Mid-Market Leaders</p>
+            <h1 class="anim-fade d1">Cut through the AI hype.<br><span class="accent-line">Build what actually works.</span></h1>
+            <p class="hero-subtitle anim-fade d2">
+              AI strategy and architecture for companies with 200–2,000 employees 
+              who can't afford Big 4 mistakes — or DIY chaos.
+            </p>
+            <div class="hero-ctas anim-fade d3">
+              <a href="#contact" class="btn btn-primary">
+                Book a 30-Minute AI Fit Call
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#lead-magnet" class="btn btn-secondary">Get the RAPID Checklist</a>
+            </div>
+            <p class="hero-proof anim-fade d4">
+              Led by an AI/ML manager with Fortune 500 experience at IBM, Zeiss, Medtronic — and $8M+ in delivered AI projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== WHY AI FAILS ==================== -->
+    <section id="why-fails" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why mid-market AI fails</h2>
+          <p class="section-intro">
+            Most 200–2,000 employee companies don't fail at AI because of the models — they fail because of strategy, architecture, and governance gaps.
+          </p>
+        </div>
+
+        <div class="grid grid-2 reveal">
+          <ul class="pain-list">
+            <li>
+              <div class="pain-icon">🔌</div>
+              <div><strong>Disconnected pilots</strong> with no enterprise architecture tying them together.</div>
+            </li>
+            <li>
+              <div class="pain-icon">🌀</div>
+              <div><strong>Tool sprawl &amp; vendor lock-in</strong> instead of a clear, unified data strategy.</div>
+            </li>
+            <li>
+              <div class="pain-icon">📊</div>
+              <div><strong>Big 4 slide decks</strong> that never translate into buildable, executable roadmaps.</div>
+            </li>
+            <li>
+              <div class="pain-icon">🔥</div>
+              <div><strong>DIY experiments</strong> that create risk, shadow IT, and burned-out teams.</div>
+            </li>
+          </ul>
+
+          <div class="callout-box">
+            <h3>There's a better path</h3>
+            <p>
+              The RAPID Framework turns AI chaos into a practical, step-by-step strategy 
+              your teams can actually execute — without the six-figure retainer or 18-month timeline.
+            </p>
+            <a href="#rapid" class="text-link">See how RAPID works</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== RAPID FRAMEWORK ==================== -->
+    <section id="rapid" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>The RAPID Framework</h2>
+          <p class="section-intro">
+            Our end-to-end model for AI that aligns strategy, architecture, process, and delivery 
+            across your organization — without Big 4 bloat.
+          </p>
+        </div>
+
+        <div class="rapid-steps reveal">
+          <article class="rapid-step">
+            <div class="rapid-letter">R</div>
+            <h3>Readiness</h3>
+            <p>Assess your data, talent, and governance so AI investments match reality — not vendor hype.</p>
+          </article>
+          <article class="rapid-step">
+            <div class="rapid-letter">A</div>
+            <h3>Architecture</h3>
+            <p>Design an enterprise AI and data architecture your teams can actually build and maintain.</p>
+          </article>
+          <article class="rapid-step">
+            <div class="rapid-letter">P</div>
+            <h3>Process</h3>
+            <p>Define how ideas become governed, repeatable AI initiatives — not one-off experiments.</p>
+          </article>
+          <article class="rapid-step">
+            <div class="rapid-letter">I</div>
+            <h3>Implementation</h3>
+            <p>Select the right projects, partners, and patterns — without vendor lock-in.</p>
+          </article>
+          <article class="rapid-step">
+            <div class="rapid-letter">D</div>
+            <h3>Delivery</h3>
+            <p>Operationalize, measure impact, and continuously improve what you've built.</p>
+          </article>
+        </div>
+
+        <div class="lead-magnet reveal" id="lead-magnet">
+          <p>📋 Want the one-page RAPID overview for your leadership team?</p>
+          <a href="#contact" class="btn btn-primary" style="padding: 0.6rem 1.35rem; font-size: 0.85rem;">Request the RAPID Checklist</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== ORGANIZATIONAL SECOND BRAIN ==================== -->
+    <section id="second-brain" class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <h2>Build Your Organizational Second Brain</h2>
+          <p class="section-intro">
+            A four-layer enterprise AI architecture so institutional knowledge is captured once 
+            and reused everywhere — not trapped in tribal knowledge.
+          </p>
+        </div>
+
+        <div class="grid grid-4 osb-layers reveal">
+          <article class="osb-layer">
+            <div class="osb-layer-num">Layer 1</div>
+            <h3>Capture</h3>
+            <p>Ingest documents, conversations, and operational data from across the business into a unified foundation.</p>
+          </article>
+          <article class="osb-layer">
+            <div class="osb-layer-num">Layer 2</div>
+            <h3>Context</h3>
+            <p>Organize and enrich that data with business-specific metadata, permissions, and governance rules.</p>
+          </article>
+          <article class="osb-layer">
+            <div class="osb-layer-num">Layer 3</div>
+            <h3>Intelligence</h3>
+            <p>Apply models and agents that reason over your data securely — with explainability and audit trails.</p>
+          </article>
+          <article class="osb-layer">
+            <div class="osb-layer-num">Layer 4</div>
+            <h3>Action</h3>
+            <p>Deliver outcomes into the tools your teams already use: CRM, ERP, support, field ops.</p>
+          </article>
+        </div>
+
+        <div class="osb-example reveal">
+          <div class="osb-example-icon">💡</div>
+          <p>
+            Imagine customer support where every agent has a trusted second brain that knows your 
+            policies, contracts, and past tickets — and surfaces the right answer in seconds, not minutes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-header centered">
+          <h2>Choose Your Starting Point</h2>
+          <p class="section-intro" style="margin-left:auto;margin-right:auto;">
+            We design the strategy, architecture, and guardrails. Your internal teams and partners own the build.
+          </p>
+        </div>
+
+        <div class="grid grid-3 service-tiers reveal">
+          <!-- Entry -->
+          <article class="service-card">
+            <div class="service-tag">Entry</div>
+            <h3>RAPID Readiness Diagnostic</h3>
+            <p class="service-who">For leaders at the beginning of their AI journey who need clarity before committing budget.</p>
+            <ul class="service-list">
+              <li>Stakeholder interviews and current-state AI &amp; data inventory</li>
+              <li>RAPID readiness scorecard and risk &amp; governance review</li>
+              <li>3–5 prioritized "no-regret" AI opportunities</li>
+              <li>Executive-ready summary and recommendation brief</li>
+            </ul>
+            <div class="service-outcome">→ A shared view of where you are today and what to do first.</div>
+          </article>
+
+          <!-- Core -->
+          <article class="service-card featured">
+            <div class="service-tag">Core</div>
+            <h3>Strategy &amp; Architecture Sprint</h3>
+            <p class="service-who">For organizations with scattered AI pilots that need a coherent plan and blueprint.</p>
+            <ul class="service-list">
+              <li>Deep-dive workshops and AI portfolio design</li>
+              <li>Organizational Second Brain architecture and vendor landscape</li>
+              <li>12–18 month buildable roadmap with governance model</li>
+              <li>Executive readout and stakeholder alignment session</li>
+            </ul>
+            <div class="service-outcome">→ A buildable AI strategy and architecture your teams can execute.</div>
+          </article>
+
+          <!-- Flagship -->
+          <article class="service-card">
+            <div class="service-tag">Flagship</div>
+            <h3>Strategic Advisory Retainer</h3>
+            <p class="service-who">For leadership teams who want an ongoing AI partner without giving up implementation control.</p>
+            <ul class="service-list">
+              <li>Monthly or biweekly executive sessions and roadmap refresh</li>
+              <li>Architecture and vendor decision support</li>
+              <li>Review of key pilots, AI agents, and risk posture</li>
+              <li>On-call sounding board for time-sensitive decisions</li>
+            </ul>
+            <div class="service-outcome">→ Faster, safer AI decisions and fewer dead-end pilots.</div>
+          </article>
+        </div>
+
+        <div class="services-note reveal">
+          Implementation-agnostic by design. We help you make the right AI decisions — your internal teams and preferred partners own the build.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== TOOLS ==================== -->
+    <section id="tools" class="section section-alt">
+      <div class="container">
+        <div class="section-header centered">
+          <h2>Try Our AI Tools</h2>
+          <p class="section-intro" style="margin-left:auto;margin-right:auto;">
+            Use the same tools we bring into executive workshops to self-diagnose your AI readiness.
+          </p>
+        </div>
+
+        <div class="grid grid-2 reveal">
+          <article class="tool-card">
+            <div class="tool-emoji">⚡</div>
+            <h3>Prompt Improver</h3>
+            <p>Paste a real prompt your team uses. We'll show how to make it more robust, safer, and reusable across your organization.</p>
+            <a href="/tools.html" class="text-link">Open Prompt Improver</a>
+          </article>
+
+          <article class="tool-card">
+            <div class="tool-emoji">🎯</div>
+            <h3>AI Role Fit Analyzer</h3>
+            <p>Paste a job description and see whether the role is truly set up to own AI strategy and governance — or just "AI-adjacent."</p>
+            <a href="/fit-analyzer.html" class="text-link">Open Job Fit Analyzer</a>
+          </article>
+        </div>
+
+        <p class="section-footnote reveal">
+          Liked the output? <a href="#contact">Book a call</a> to see the full RAPID assessment for your organization.
         </p>
-        <div class="hero-cta">
-          <a href="mailto:info@aitechmagic.com" class="btn btn-primary">
-            Let's Talk
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services -->
-  <section class="services" id="services">
-    <div class="container">
-      <div class="section-header">
-        <h2>What I Do</h2>
-        <p>Strategic AI consulting that bridges the gap between ambitious vision and practical execution — without the Big 4 price tag or 6-month timelines.</p>
-      </div>
-      
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🎯</div>
-          <h3>AI Strategy & Roadmaps</h3>
-          <p>Clear-eyed assessments of what AI can (and can't) do for your business. No hype, just actionable strategy aligned to your goals.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">🏗️</div>
-          <h3>Custom Frameworks</h3>
-          <p>Bespoke AI governance and implementation frameworks built for your team — from hiring the right talent to prioritizing the right projects.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">🎓</div>
-          <h3>Executive Education</h3>
-          <p>Demystify AI for your leadership team. Interactive workshops on AI/ML fundamentals, prompting techniques, and strategic decision-making.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">⚡</div>
-          <h3>Innovation Lab Sprints</h3>
-          <p>Compress 18-month AI initiatives into 2-4 week proof-of-concept sprints. Validate ideas fast before committing major resources.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">🤖</div>
-          <h3>AI Implementation</h3>
-          <p>Hands-on guidance taking AI projects from concept to production — including vendor selection, governance, and change management.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3>AI Readiness Assessment</h3>
-          <p>Comprehensive evaluation of your organization's data, infrastructure, and culture to identify quick wins and long-term opportunities.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">🧠</div>
-          <h3>AI Agent Strategy & Design</h3>
-          <p>Identify high-value opportunities for autonomous AI agents in your workflows. I lead strategy and architecture — then coordinate implementation with trusted technical partners.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-content">
-          <h2>Built by a Practitioner, Not a Theorist</h2>
-          <p>
-            I've led AI/ML teams at Fortune 500 scale — managing multi-million dollar budgets, 
-            building global teams, and delivering AI solutions that actually move business metrics. 
-            Now I bring that playbook to growing companies ready to scale intelligently.
-          </p>
-          <p>
-            From enterprise chatbots to innovation frameworks that compress 18-month timelines 
-            into weeks, I've navigated the real challenges: governance, skeptical stakeholders, data quality 
-            nightmares, and the gap between vendor promises and production reality.
-          </p>
-          <p>
-            My approach combines technical depth (Cornell AI/ML certification, engineering roots) with 
-            executive-level strategic thinking. I speak both languages — and I translate between them.
+    <!-- ==================== POSITIONING TABLE ==================== -->
+    <section id="positioning" class="section">
+      <div class="container">
+        <div class="section-header centered">
+          <h2>Why Mid-Market Leaders Choose Us</h2>
+          <p class="section-intro" style="margin-left:auto;margin-right:auto;">
+            Enterprise-grade strategy without the enterprise-grade price tag or timeline.
           </p>
         </div>
-        
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Team Members Led</div>
+
+        <div class="comparison-wrapper reveal">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Big 4 Consultancies</th>
+                <th>DIY / Internal Only</th>
+                <th>AI Tech Magic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Speed</td>
+                <td>Long sales cycles, 6+ month engagements</td>
+                <td>Slow, trial-and-error learning curve</td>
+                <td>4–6 week RAPID assessment, 90-day roadmap</td>
+              </tr>
+              <tr>
+                <td>Cost</td>
+                <td>Multi-six-figure minimums</td>
+                <td>Hidden costs in failed pilots and rework</td>
+                <td>Transparent, fixed-fee diagnostics and sprints</td>
+              </tr>
+              <tr>
+                <td>Right-sized</td>
+                <td>Often over-engineered for mid-market</td>
+                <td>Under-governed, fragmented tools</td>
+                <td>Architecture and governance built for 200–2K employees</td>
+              </tr>
+              <tr>
+                <td>Bias</td>
+                <td>Vendor/implementation-heavy</td>
+                <td>Tool-driven, not strategy-driven</td>
+                <td>Strategy-only, partner-friendly — you keep the build</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== PROOF / ABOUT ==================== -->
+    <section id="proof" class="section section-alt">
+      <div class="container">
+        <div class="grid grid-2">
+          <div>
+            <div class="section-header">
+              <h2>Why AI Tech Magic</h2>
+            </div>
+
+            <div class="proof-stats reveal">
+              <div class="proof-stat">
+                <div class="proof-stat-number">15+</div>
+                <div class="proof-stat-label">Team Members Led</div>
+              </div>
+              <div class="proof-stat">
+                <div class="proof-stat-number">$8M+</div>
+                <div class="proof-stat-label">Projects Delivered</div>
+              </div>
+              <div class="proof-stat">
+                <div class="proof-stat-number">Global</div>
+                <div class="proof-stat-label">Team Experience</div>
+              </div>
+              <div class="proof-stat">
+                <div class="proof-stat-number">2–4 wk</div>
+                <div class="proof-stat-label">Innovation Sprints</div>
+              </div>
+            </div>
+
+            <div class="proof-logos reveal">
+              <span class="proof-logos-label">Experience at:</span>
+              <span class="logo-name">IBM</span>
+              <span class="logo-name">Zeiss</span>
+              <span class="logo-name">Medtronic</span>
+              <span class="logo-name">Emerson</span>
+            </div>
           </div>
-          <div class="stat">
-            <div class="stat-number">Global</div>
-            <div class="stat-label">Team Experience</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">$8M+</div>
-            <div class="stat-label">Projects Delivered</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">2-4 wk</div>
-            <div class="stat-label">Innovation Sprints</div>
+
+          <div class="proof-bio reveal">
+            <h3>About Virginia</h3>
+            <p>
+              Virginia is an AI/ML Manager and founder of AI Tech Magic LLC. She partners with 
+              mid-market leadership teams to design AI strategies, architectures, and operating 
+              models that avoid the costly missteps she's seen firsthand at enterprise scale.
+            </p>
+            <p>
+              Her approach combines deep technical roots (Cornell AI/ML certification, engineering 
+              background) with executive-level strategic thinking that comes from managing 
+              multi-million-dollar budgets and global teams. She speaks both languages — and 
+              translates between them.
+            </p>
+            <p>
+              From enterprise chatbots to innovation frameworks that compress 18-month timelines 
+              into weeks, Virginia has navigated the real challenges: governance, skeptical stakeholders, 
+              data quality nightmares, and the gap between vendor promises and production reality.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h2>Let's Build Something</h2>
-          <p>
-            Whether you're a scaling company exploring AI for the first time or ready to accelerate existing initiatives, 
-            I'd love to hear about your challenges.
-          </p>
-          <p>
-            Reach out directly or fill out the form, and I'll get back to you within 24 hours.
-          </p>
-          <a href="mailto:info@aitechmagic.com" class="contact-email">info@aitechmagic.com</a>
-        </div>
-        
-        <div class="contact-form">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="section section-dark">
+      <div class="container">
+        <div class="grid grid-2">
+          <div class="contact-left">
+            <h2>Let's Find Your Starting Point</h2>
+            <p>
+              You're a mid-market leader responsible for AI decisions. You don't want to overpay 
+              Big 4 or gamble on DIY. Tell us about your organization and AI initiatives, and 
+              we'll confirm whether a RAPID Readiness Diagnostic is the right first step.
+            </p>
+            <p>Or reach out directly:</p>
+            <a href="mailto:info@aitechmagic.com" class="contact-email-link">
+              ✉ info@aitechmagic.com
+            </a>
+          </div>
+
+          <div class="contact-form-card">
+            <form id="contactForm">
+              <div class="form-row">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-row">
+                <label for="email">Work Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-row">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company">
+              </div>
+              <div class="form-row">
+                <label for="employees">Approx. Employee Count</label>
+                <select id="employees" name="employees">
+                  <option value="">Select</option>
+                  <option value="under-200">Under 200</option>
+                  <option value="200-500">200–500</option>
+                  <option value="501-1000">501–1,000</option>
+                  <option value="1001-2000">1,001–2,000</option>
+                  <option value="over-2000">Over 2,000</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="interest">I'm interested in...</label>
+                <select id="interest" name="interest">
+                  <option value="">Select an option</option>
+                  <option value="diagnostic">RAPID Readiness Diagnostic</option>
+                  <option value="strategy-sprint">Strategy &amp; Architecture Sprint</option>
+                  <option value="retainer">Strategic Advisory Retainer</option>
+                  <option value="education">Executive Education</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="message">What's happening with AI in your org?</label>
+                <textarea id="message" name="message" placeholder="A few sentences is plenty."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit">Submit</button>
+              <p class="form-note">We'll reply within 1 business day with next steps.</p>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+              <h3>✅ Message Received!</h3>
+              <p>Thanks for reaching out. We'll get back to you within 1 business day with next steps.</p>
             </div>
-            
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company">
-            </div>
-            
-            <div class="form-group">
-              <label for="interest">I'm interested in...</label>
-              <select id="interest" name="interest">
-                <option value="">Select an option</option>
-                <option value="strategy">AI Strategy & Roadmaps</option>
-                <option value="frameworks">Custom Frameworks</option>
-                <option value="education">Executive Education</option>
-                <option value="innovation">Innovation Lab Sprints</option>
-                <option value="implementation">AI Implementation</option>
-                <option value="assessment">AI Readiness Assessment</option>
-                <option value="other">Something else</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Tell me about your challenge</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary form-submit">Send Message</button>
-          </form>
-          
-          <div class="form-success" id="formSuccess">
-            <h3>Message Sent!</h3>
-            <p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
+  </main>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">AI Tech <span>Magic</span></div>
-        <ul class="footer-links">
-          <li><a href="/terms.html">Terms of Service</a></li>
-          <li><a href="/privacy.html">Privacy Policy</a></li>
-        </ul>
+      <div class="footer-inner">
+        <div class="footer-logo">AI Tech <span class="accent">Magic</span></div>
+        <nav class="footer-nav">
+          <a href="/terms.html">Terms</a>
+          <a href="/privacy.html">Privacy</a>
+        </nav>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 AI Tech Magic, LLC. All rights reserved.</p>
@@ -858,23 +511,24 @@
     </div>
   </footer>
 
-  <!-- Supabase + Form Script -->
+
+  <!-- ==================== SCRIPTS ==================== -->
   <script>
     // ===========================================
     // MOBILE MENU
     // ===========================================
-    const hamburger = document.getElementById('hamburger');
+    const navToggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileOverlay = document.getElementById('mobileOverlay');
 
     function toggleMobileMenu() {
-      hamburger.classList.toggle('active');
+      navToggle.classList.toggle('active');
       mobileMenu.classList.toggle('active');
       mobileOverlay.classList.toggle('active');
       document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     }
 
-    hamburger.addEventListener('click', toggleMobileMenu);
+    navToggle.addEventListener('click', toggleMobileMenu);
     mobileOverlay.addEventListener('click', toggleMobileMenu);
     document.querySelectorAll('.mobile-link').forEach(link =>
       link.addEventListener('click', () => {
@@ -883,49 +537,67 @@
     );
 
     // ===========================================
+    // NAV SCROLL EFFECT
+    // ===========================================
+    const siteHeader = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      siteHeader.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ===========================================
+    // SCROLL REVEAL
+    // ===========================================
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // ===========================================
     // RESET FORM STATE ON PAGE LOAD
     // ===========================================
     document.getElementById('contactForm').style.display = 'block';
     document.getElementById('formSuccess').classList.remove('show');
-    
+
     // ===========================================
     // SUPABASE CONFIGURATION
     // ===========================================
-    // Replace these with your actual Supabase credentials:
-    // 1. Go to your Supabase project dashboard
-    // 2. Navigate to Settings > API
-    // 3. Copy your Project URL and anon/public key
-    
     const SUPABASE_URL = 'https://sbyefaafaovnqxuxlqqy.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNieWVmYWFmYW92bnF4dXhscXF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MzY2NzYsImV4cCI6MjA4NTUxMjY3Nn0.JPNNdxcBkwsnY0ujA9zDiekEJb86chqXyR8HM2ZYDWY';
-    
+
     // ===========================================
-    // FORM SUBMISSION HANDLER
+    // FORM SUBMISSION
     // ===========================================
-    
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      
+
       const form = e.target;
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
-      
-      // Disable button and show loading state
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
-      
-      // Gather form data
+
       const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
         company: document.getElementById('company').value || null,
         interest: document.getElementById('interest').value || null,
         message: document.getElementById('message').value,
+        source: 'homepage',
         created_at: new Date().toISOString()
       };
-      
+
+      const employees = document.getElementById('employees').value;
+      if (employees) formData.employees = employees;
+
       try {
-        // Send to Supabase
         const response = await fetch(`${SUPABASE_URL}/rest/v1/aileads`, {
           method: 'POST',
           headers: {
@@ -936,9 +608,8 @@
           },
           body: JSON.stringify(formData)
         });
-        
+
         if (response.ok) {
-          // Show success message
           form.style.display = 'none';
           document.getElementById('formSuccess').classList.add('show');
         } else {
@@ -946,9 +617,10 @@
         }
       } catch (error) {
         console.error('Error:', error);
-        // Fallback: open email client if Supabase fails
         const subject = encodeURIComponent(`AI Tech Magic Inquiry - ${formData.interest || 'General'}`);
-        const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'N/A'}\nInterest: ${formData.interest || 'N/A'}\nMessage: ${formData.message}`);
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'N/A'}\nEmployees: ${employees || 'N/A'}\nInterest: ${formData.interest || 'N/A'}\nMessage: ${formData.message}`
+        );
         window.location.href = `mailto:info@aitechmagic.com?subject=${subject}&body=${body}`;
       }
     });
