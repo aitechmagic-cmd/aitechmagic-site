@@ -2,10 +2,27 @@
 
 [build]
   publish = "."
-  functions = "netlify/functions"
 
-[functions]
-  node_bundler = "esbuild"
+# Clean URL routing - serve .html files without the extension
+[[redirects]]
+  from = "/fit-analyzer"
+  to = "/fit-analyzer.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools"
+  to = "/tools.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
 
 # Redirect www to non-www (optional - uncomment if desired)
 # [[redirects]]
