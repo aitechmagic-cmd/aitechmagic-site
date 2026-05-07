@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tech Magic | Fractional Chief AI Officer</title>
-  <meta name="description" content="The AI executive your company needs, without the full-time cost. Fractional CAIO services from a practitioner who has led AI/ML teams at Fortune 500 scale.">
-  
+  <title>AI Tech Magic | Strategic AI Advisory for Mid-Market Leaders</title>
+  <meta name="description" content="Strategic AI advisory for mid-market companies. Built on proven frameworks — RAPID, the Organizational Second Brain — and one conviction: process before technology.">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
       --color-bg: #FAFAF8;
@@ -22,16 +22,16 @@
       --color-accent-hover: #D6673B;
       --color-white: #FFFFFF;
       --color-border: #E0DED8;
-      
+
       --font-display: 'Outfit', sans-serif;
       --font-body: 'Source Serif 4', Georgia, serif;
-      
+
       --space-xs: 0.5rem;
       --space-sm: 1rem;
       --space-md: 2rem;
       --space-lg: 4rem;
       --space-xl: 8rem;
-      
+
       --max-width: 1200px;
       --transition: 0.3s ease;
     }
@@ -295,6 +295,7 @@
       border-radius: 8px;
       border: 1px solid var(--color-border);
       transition: all var(--transition);
+      position: relative;
     }
 
     .service-card:hover {
@@ -326,6 +327,48 @@
       margin-bottom: 0;
     }
 
+    .service-card .badge {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      background: rgba(232, 120, 74, 0.1);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Principle callout */
+    .principle {
+      background: var(--color-bg-alt);
+      border-left: 4px solid var(--color-accent);
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+      border-radius: 4px;
+    }
+
+    .principle-label {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xs);
+    }
+
+    .principle-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+
     /* About / Credibility */
     .about {
       background: var(--color-primary);
@@ -350,6 +393,11 @@
 
     .about-content p:last-child {
       margin-bottom: 0;
+    }
+
+    .about-content strong {
+      color: var(--color-white);
+      font-weight: 600;
     }
 
     .about-stats {
@@ -512,6 +560,7 @@
       display: flex;
       gap: var(--space-md);
       list-style: none;
+      flex-wrap: wrap;
     }
 
     .footer-links a {
@@ -638,8 +687,8 @@
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="https://blog.aitechmagic.com">Blog</a></li>
         <li><a href="/tools.html">Tools</a></li>
-        <li><a href="/fit-analyzer.html">Job Fit Tool</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -654,6 +703,7 @@
     <ul>
       <li><a href="#services" class="mobile-link">Services</a></li>
       <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="https://blog.aitechmagic.com" class="mobile-link">Blog</a></li>
       <li><a href="/tools.html" class="mobile-link">Tools</a></li>
       <li><a href="/fit-analyzer.html" class="mobile-link">Job Fit Tool</a></li>
       <li><a href="#contact" class="mobile-link">Contact</a></li>
@@ -664,12 +714,11 @@
   <section class="hero" id="home">
     <div class="container">
       <div class="hero-content">
-        <span class="hero-eyebrow">Fractional Chief AI Officer</span>
-        <h1>The AI executive your company needs &mdash; without the full-time cost.</h1>
+        <span class="hero-eyebrow">AI Strategy for Mid-Market Leaders</span>
+        <h1>Cut through the AI hype. Build what actually works.</h1>
         <p class="hero-description">
-          Most companies don&rsquo;t need another consultant with a deck. They need an operator who has
-          built AI teams, managed the budgets, and delivered real outcomes. That&rsquo;s what I bring &mdash;
-          embedded AI leadership, on a fractional basis.
+          Strategic AI advisory for mid-market companies — built on proven frameworks and one conviction: process before technology. No vendor pitches. No Big 4 timelines. No hype.
+        </p>
         <div class="hero-cta">
           <a href="mailto:info@aitechmagic.com" class="btn btn-primary">
             Let's Talk
@@ -685,50 +734,45 @@
     <div class="container">
       <div class="section-header">
         <h2>What I Do</h2>
-        <p>Strategic AI consulting that bridges the gap between ambitious vision and practical execution — without the Big 4 price tag or 6-month timelines.</p>
-        <p>Fractional CAIO services built for companies that are serious about AI — not another vendor relationship, but an embedded executive who owns outcomes alongside your team.</p>
-      
+        <p>Strategic AI advisory that bridges ambitious vision and practical execution — without the Big 4 price tag or six-month timelines.</p>
+      </div>
+
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon">🎯</div>
-          <h3>AI Strategy & Roadmaps</h3>
-          <p>Clear-eyed assessments of what AI can (and can't) do for your business. No hype, just actionable strategy aligned to your goals.</p>
+          <h3>RAPID Framework Engagements</h3>
+          <p>A five-stage methodology — Readiness, Architecture, Process, Implementation, Delivery — built so AI initiatives don't stall at the predictable failure points. Designed for mid-market teams that need rigor without consulting-firm overhead.</p>
         </div>
-        
+
         <div class="service-card">
-          <div class="service-icon">🏗️</div>
-          <h3>Custom Frameworks</h3>
-          <p>Bespoke AI governance and implementation frameworks built for your team — from hiring the right talent to prioritizing the right projects.</p>
+          <span class="badge">Coming Soon</span>
+          <div class="service-icon">📊</div>
+          <h3>AI Readiness Assessment</h3>
+          <p>A six-pillar diagnostic across data quality, team & skills, process readiness, governance, leadership, and current AI maturity. Productized version — <strong>ReadinessRadar</strong> — launching soon.</p>
         </div>
-        
+
+        <div class="service-card">
+          <div class="service-icon">🧠</div>
+          <h3>Organizational Second Brain</h3>
+          <p>A four-layer enterprise AI architecture — Capture, Context, Intelligence, Action — that turns scattered institutional knowledge into a system your team can actually use. For companies past the chatbot-experiment phase.</p>
+        </div>
+
         <div class="service-card">
           <div class="service-icon">🎓</div>
           <h3>Executive Education</h3>
-          <p>Demystify AI for your leadership team. Interactive workshops on AI/ML fundamentals, prompting techniques, and strategic decision-making.</p>
+          <p>Workshops on AI/ML fundamentals, specification engineering, and strategic decision-making. Built for leadership teams that need to make confident AI calls — not vendor demos dressed up as training.</p>
         </div>
-        
+
         <div class="service-card">
           <div class="service-icon">⚡</div>
           <h3>Innovation Lab Sprints</h3>
-          <p>Compress 18-month AI initiatives into 2-4 week proof-of-concept sprints. Validate ideas fast before committing major resources.</p>
+          <p>Compress 18-month AI initiatives into 2–4 week proof-of-concept sprints. Validate ideas before you commit budget, vendor lock-in, or political capital.</p>
         </div>
-        
+
         <div class="service-card">
           <div class="service-icon">🤖</div>
-          <h3>AI Implementation</h3>
-          <p>Hands-on guidance taking AI projects from concept to production — including vendor selection, governance, and change management.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3>AI Readiness Assessment</h3>
-          <p>Comprehensive evaluation of your organization's data, infrastructure, and culture to identify quick wins and long-term opportunities.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">🧠</div>
           <h3>AI Agent Strategy & Design</h3>
-          <p>Identify high-value opportunities for autonomous AI agents in your workflows. I lead strategy and architecture — then coordinate implementation with trusted technical partners.</p>
+          <p>Identify high-value opportunities for autonomous AI agents in your workflows. I lead strategy and architecture, then coordinate implementation with trusted technical partners.</p>
         </div>
       </div>
     </div>
@@ -741,21 +785,16 @@
         <div class="about-content">
           <h2>Built by a Practitioner, Not a Theorist</h2>
           <p>
-            I've led AI/ML teams at Fortune 500 scale — managing multi-million dollar budgets, 
-            building global teams, and delivering AI solutions that actually move business metrics. 
-            Now I bring that playbook to growing companies ready to scale intelligently.
+            I've led AI/ML programs across Fortune 500 environments — companies like <strong>IBM</strong>, <strong>Zeiss</strong>, and <strong>Medtronic</strong> — managing multi-million-dollar budgets, building global teams, and shipping AI that moved real business metrics.
           </p>
           <p>
-            From enterprise chatbots to innovation frameworks that compress 18-month timelines 
-            into weeks, I've navigated the real challenges: governance, skeptical stakeholders, data quality 
-            nightmares, and the gap between vendor promises and production reality.
+            AI Tech Magic brings that playbook to mid-market companies (200–2,000 employees) that need senior strategic thinking — without Big 4 pricing or six-month engagements. From innovation frameworks that compress 18-month timelines into weeks to governance that survives the first board review, I've navigated the real challenges: skeptical stakeholders, data quality nightmares, and the gap between vendor promises and production reality.
           </p>
           <p>
-            My approach combines technical depth (Cornell AI/ML certification, engineering roots) with 
-            executive-level strategic thinking. I speak both languages — and I translate between them.
+            Technical depth from <strong>Cornell AI/ML certification</strong> and engineering roots. Executive-level strategic thinking from a decade of program leadership. I speak both languages — and translate between them.
           </p>
         </div>
-        
+
         <div class="about-stats">
           <div class="stat">
             <div class="stat-number">15+</div>
@@ -763,17 +802,22 @@
           </div>
           <div class="stat">
             <div class="stat-number">Global</div>
-            <div class="stat-label">Team Experience</div>
+            <div class="stat-label">Team Footprint</div>
           </div>
           <div class="stat">
             <div class="stat-number">$8M+</div>
-            <div class="stat-label">Projects Delivered</div>
+            <div class="stat-label">Programs Delivered</div>
           </div>
           <div class="stat">
-            <div class="stat-number">2-4 wk</div>
+            <div class="stat-number">2–4 wk</div>
             <div class="stat-label">Innovation Sprints</div>
           </div>
         </div>
+      </div>
+
+      <div class="principle" style="margin-top: var(--space-lg); background: rgba(255,255,255,0.05); border-left-color: var(--color-accent);">
+        <div class="principle-label" style="color: var(--color-accent);">Core Principle</div>
+        <p class="principle-text" style="color: var(--color-white);">Process before technology. AI initiatives fail when organizations automate broken processes — every framework I build starts there.</p>
       </div>
     </div>
   </section>
@@ -785,54 +829,53 @@
         <div class="contact-info">
           <h2>Let's Build Something</h2>
           <p>
-            Whether you're a scaling company exploring AI for the first time or ready to accelerate existing initiatives, 
-            I'd love to hear about your challenges.
+            Whether you're a scaling company exploring AI for the first time or ready to accelerate existing initiatives, I'd love to hear about your challenges.
           </p>
           <p>
             Reach out directly or fill out the form, and I'll get back to you within 24 hours.
           </p>
           <a href="mailto:info@aitechmagic.com" class="contact-email">info@aitechmagic.com</a>
         </div>
-        
+
         <div class="contact-form">
           <form id="contactForm">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" required>
             </div>
-            
+
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" id="email" name="email" required>
             </div>
-            
+
             <div class="form-group">
               <label for="company">Company</label>
               <input type="text" id="company" name="company">
             </div>
-            
+
             <div class="form-group">
               <label for="interest">I'm interested in...</label>
               <select id="interest" name="interest">
                 <option value="">Select an option</option>
-                <option value="strategy">AI Strategy & Roadmaps</option>
-                <option value="frameworks">Custom Frameworks</option>
+                <option value="rapid">RAPID Framework Engagement</option>
+                <option value="readiness">AI Readiness Assessment</option>
+                <option value="second-brain">Organizational Second Brain</option>
                 <option value="education">Executive Education</option>
-                <option value="innovation">Innovation Lab Sprints</option>
-                <option value="implementation">AI Implementation</option>
-                <option value="assessment">AI Readiness Assessment</option>
+                <option value="sprint">Innovation Lab Sprint</option>
+                <option value="agents">AI Agent Strategy & Design</option>
                 <option value="other">Something else</option>
               </select>
             </div>
-            
+
             <div class="form-group">
               <label for="message">Tell me about your challenge</label>
               <textarea id="message" name="message" required></textarea>
             </div>
-            
+
             <button type="submit" class="btn btn-primary form-submit">Send Message</button>
           </form>
-          
+
           <div class="form-success" id="formSuccess">
             <h3>Message Sent!</h3>
             <p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
@@ -848,6 +891,8 @@
       <div class="footer-content">
         <div class="footer-logo">AI Tech <span>Magic</span></div>
         <ul class="footer-links">
+          <li><a href="https://blog.aitechmagic.com">Blog</a></li>
+          <li><a href="/tools.html">Tools</a></li>
           <li><a href="/terms.html">Terms of Service</a></li>
           <li><a href="/privacy.html">Privacy Policy</a></li>
         </ul>
@@ -887,33 +932,27 @@
     // ===========================================
     document.getElementById('contactForm').style.display = 'block';
     document.getElementById('formSuccess').classList.remove('show');
-    
+
     // ===========================================
     // SUPABASE CONFIGURATION
     // ===========================================
-    // Replace these with your actual Supabase credentials:
-    // 1. Go to your Supabase project dashboard
-    // 2. Navigate to Settings > API
-    // 3. Copy your Project URL and anon/public key
-    
     const SUPABASE_URL = 'https://sbyefaafaovnqxuxlqqy.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNieWVmYWFmYW92bnF4dXhscXF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MzY2NzYsImV4cCI6MjA4NTUxMjY3Nn0.JPNNdxcBkwsnY0ujA9zDiekEJb86chqXyR8HM2ZYDWY';
-    
+
     // ===========================================
     // FORM SUBMISSION HANDLER
     // ===========================================
-    
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      
+
       const form = e.target;
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
-      
+
       // Disable button and show loading state
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
-      
+
       // Gather form data
       const formData = {
         name: document.getElementById('name').value,
@@ -923,7 +962,7 @@
         message: document.getElementById('message').value,
         created_at: new Date().toISOString()
       };
-      
+
       try {
         // Send to Supabase
         const response = await fetch(`${SUPABASE_URL}/rest/v1/aileads`, {
@@ -936,7 +975,7 @@
           },
           body: JSON.stringify(formData)
         });
-        
+
         if (response.ok) {
           // Show success message
           form.style.display = 'none';
